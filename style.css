@@ -1,0 +1,81 @@
+/* style.css */
+
+/* Basic body styling, though most is handled by Tailwind in index.html */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Tailwind handles font, background, flex properties for centering */
+}
+
+/* Custom styles for file input (though Tailwind handles most) */
+input[type="file"] {
+    cursor: pointer;
+}
+
+/* Hide the default file input button, if needed (Tailwind's file: utilities often make this unnecessary) */
+/* input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+}
+input[type="file"]::before {
+    content: 'तस्वीर चुनें';
+    display: inline-block;
+    background: linear-gradient(to right, #3B82F6, #8B5CF6);
+    color: white;
+    border: none;
+    border-radius: 9999px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.875rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+input[type="file"]:hover::before {
+    background: linear-gradient(to right, #2563EB, #7C3AED);
+    transform: scale(1.05);
+}
+input[type="file"]:active::before {
+    background: linear-gradient(to right, #1D4ED8, #6D28D9);
+    transform: scale(1);
+} */
+
+/* Ensure image preview fits container and is responsive */
+#image-preview {
+    max-width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove extra space below image */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 640px) {
+    .p-8 {
+        padding: 1.5rem; /* Reduce padding on small screens */
+    }
+    .text-4xl {
+        font-size: 2.5rem; /* Adjust heading size */
+    }
+    .text-lg {
+        font-size: 1rem; /* Adjust paragraph size */
+    }
+    .py-3 {
+        padding-top: 0.6rem;
+        padding-bottom: 0.6rem;
+    }
+}
+
+/* Message Box specific styles */
+#messageBox {
+    /* Tailwind classes handle most of this: fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4 z-50 */
+}
+
+#messageBox > div {
+    /* Tailwind classes handle most of this: bg-white p-6 rounded-lg shadow-xl max-w-sm w-full text-center */
+}
+
+#messageCloseButton {
+    /* Tailwind classes handle most of this: px-5 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 */
+}
+

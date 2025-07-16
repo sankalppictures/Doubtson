@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>डाउट सॉल्वर</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Inter font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-xl shadow-2xl w-full max-w-md border border-gray-200">
+        <h1 class="text-4xl font-extrabold text-center text-gray-800 mb-6">
+            <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+                डाउट सॉल्वर
+            </span>
+        </h1>
+        <p class="text-center text-gray-600 mb-8 text-lg">
+            अपने प्रश्न की तस्वीर अपलोड करें और तुरंत उत्तर प्राप्त करें!
+        </p>
+        
+        <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data" class="space-y-6">
+            <!-- File Input -->
+            <div>
+                <label for="questionImage" class="block text-lg font-medium text-gray-700 mb-2">
+                    प्रश्न की तस्वीर चुनें:
+                </label>
+                <input type="file" id="questionImage" name="questionImage" accept="image/*" class="block w-full text-sm text-gray-900
+                    file:mr-4 file:py-2 file:px-4
+                    file:rounded-full file:border-0
+                    file:text-sm file:font-semibold
+                    file:bg-blue-50 file:text-blue-700
+                    hover:file:bg-blue-100
+                    focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2
+                    cursor-pointer" required>
+                <p class="mt-2 text-sm text-gray-500" id="file-name-display"></p>
+            </div>
+            
+            <!-- Image Preview -->
+            <div id="image-preview-container" class="hidden mt-4">
+                <label class="block text-lg font-medium text-gray-700 mb-2">
+                    तस्वीर का पूर्वावलोकन:
+                </label>
+                <img id="image-preview" src="#" alt="तस्वीर का पूर्वावलोकन" class="w-full h-auto max-h-64 object-contain rounded-lg shadow-md border border-gray-300">
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-full shadow-sm text-lg font-semibold text-white
+                bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700
+                focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500
+                transform transition duration-300 ease-in-out hover:scale-105">
+                उत्तर प्राप्त करें
+            </button>
+        </form>
+        
+        <!-- Message Box for alerts -->
+        <div id="messageBox" class="hidden fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div class="bg-white p-6 rounded-lg shadow-xl max-w-sm w-full text-center">
+                <p id="messageText" class="text-lg font-medium text-gray-800 mb-4"></p>
+                <button id="messageCloseButton" class="px-5 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                    ठीक है
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Script for image preview -->
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
